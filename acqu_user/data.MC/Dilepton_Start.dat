@@ -1,0 +1,55 @@
+##-----------------------------------------------------------------------
+##--Author	JRM Annand   11th May 2006
+##--Update
+##--Description
+##                *** Acqu++ <-> Root ***
+## Online/Offline Analysis of Sub-Atomic Physics Experimental Data 
+##
+## Master parameter file for Monte Carlo reaction event generator
+## Expected to reside in directory $acqu/data/
+## Radiative Pi0 photo production on the proton
+## Pure phase space
+## To use invoke... MCGenerator GP_GPPi0a.dat
+##-----------------------------------------------------------------------
+Foam-Model:	Dgp
+##		#events/run	Random seed	#runs
+Number-Throws:	1000		888888		1
+##
+## Baryon resonances
+##		Name	PDG code
+Resonance:	P33	2214
+##		Name	Peak Mass(GeV)	Width(GeV)
+#Resonance:	S11	1.535		0.150
+##
+## Beam parameters, energy from Foam, theta...cos(theta) = Gaussian
+##	PDG-index	Source x,y,z (cm)
+
+Beam: 	22		0.0 0.0 -500.
+
+#P-Distr: Beam T-Dist 1/x+0.02*(TMath::BreitWigner(x,0.9,0.01))  0.899 0.901 1000
+ P-Distr: Beam T-Dist	x	                                 0.25   0.3 200
+#P-Distr: Beam T-Dist	1/x	                                 0.125 0.135 200
+# P-Distr: Beam T-Dist	1/x	                                 0.105 0.115 200
+   
+# P-Distr: Beam T-Dist /home/sokhoyan/acqu/data.mc/sigma_x_test2.dat  3 178 
+     
+#P-Distr: Beam T-Dist 1/x+0.02*(TMath::BreitWigner(x,1.0,0.01))  0.999 1.001 1000
+
+ P-Distr: Beam Cos(Theta)   TMath::Gaus(x,1.0,0.000001)	0.9999975 1.0  2000
+
+##
+##		Mass		Radius	Length	Center (x,y,z)
+Target: 	2212    	2.5	10.0   	0.0 0.0 0.0
+##
+## The reaction "particle" QF proton
+##	  Name		PDG/Res	Decay?	Track?	Parent	 Opt
+Particle: Reaction	P33	1	0	NULL	 NULL
+##
+
+Particle: Proton	2212	0	1	Reaction      NULL
+Particle: Electron	11	0	1	Reaction      NULL
+Particle: Positron	-11	0	1	Reaction      NULL
+##
+#Particle-Output: /scratch/jrma/GP_GP_Res_500kP
+#Tree-Output:    /scratch/jrma/GP_GP_Res_1MT	2
+Ntuple-Output: Dilepton_firstStart_250_300_MeV
