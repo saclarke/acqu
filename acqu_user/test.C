@@ -92,6 +92,7 @@ TH2F* hEnergy_Theta_nocut_proton = new TH2F("hEnergy_Theta_nocut_proton", "hEner
 TH2F* hEnergy_Theta_nocut_proton = new TH2F("hEnergy_Theta_nocut_proton", "hEnergy_Theta_nocut_proton", 200, 0, 200, 180, 0., 180.) ; 
 
 TH1F* hMinv_elpos = new TH1F("hMinv_elpos", "hMinv_elpos", 300, 0., 1000.) ; 
+TH1F* scott = new TH1F("scott", "scott", 300, 0., 1000.);
 
 hM_miss_nocut->SetLineColor(4) ;
 hM_miss->SetLineColor(2) ;
@@ -139,7 +140,10 @@ TFile* currentFile = h1->GetFile() ;
    
    hEnergy_M_miss_nocut->Fill(outgoing_Electron.E(), M_outgoing_Proton, 1) ;
    hEnergy_M_miss_nocut->Fill(outgoing_Positron.E(), M_outgoing_Proton, 1) ;
-    
+	
+//   cout << outgoing_Electron.E() << endl;
+//	cout << outgoing_Electron.Theta()*180/TMath::Pi() << endl;
+
    hEnergy_Theta_nocut_elpos->Fill(outgoing_Electron.E(), outgoing_Electron.Theta()*180/TMath::Pi(), 1) ;
    hEnergy_Theta_nocut_elpos->Fill(outgoing_Positron.E(), outgoing_Positron.Theta()*180/TMath::Pi(), 1) ;
  //     if(outgoing_Electron.Theta()*180/TMath::Pi() > 20. > outgoing_Positron.Theta() > 20. && outgoing_Proton.Theta() > 20.)
@@ -169,7 +173,16 @@ TFile* currentFile = h1->GetFile() ;
    //////////////////////////////
    
    hMinv_elpos->Fill((outgoing_Electron + outgoing_Positron).M()) ;
-     
+	//cout << (outgoing_Positron + outgoing_Electron).M() << endl;
+	
+	//TH1F* scott = new TH1F("scott","scott",300,0,1000);
+	//scott->Fill(sqrt(outgoing_Positron.E()**2 - outgoing_Positron.P()**2));
+	//cout << (outgoing_Electron.E()) << endl;
+	//scott->Fill((outgoing_Positron + outgoing_Electron).M());
+	//scott->Fill(outgoing_Positron.Theta());
+	//cout << (outgoing_Positron + outgoing_Electron).M() << endl;
+
+
    hincoming_PhotonE->Fill(En_bm*1000) ;
    
  //   h_theta_gen->Fill(En_bm*1000) ;
@@ -180,16 +193,32 @@ TFile* currentFile = h1->GetFile() ;
 }
 //hM_miss_nocut_direct->Draw() ;
 //hincoming_PhotonE->Draw() ;
+{
+	/*	
+	TCanvas* test = new TCanvas("test", "test",100,100,400,350);
+	test->Divide(1,1);
+	test->cd(1);
+	scott->Draw("");
+
+	//double ave;
+	//ave = scott->GetMean();
+	//cout << ave << endl;
+	*/	
 
 TCanvas *check_mass = new TCanvas("check_mass","check_mass",100,100, 400, 350) ;
 check_mass->Divide(1, 1) ;
 check_mass->cd(1);
-hMinv_elpos->Draw("") ;
+//hMinv_elpos->Draw("") ;
+hMinv_elpos->Draw();
+double integral;
+integral = hMinv_elpos->Integral();
+cout << integral << endl;
 
+//added by scott (referenced by rbaker)
 	#include <TSpectrum.h>
 	TSpectrum *s = new TSpectrum();
 	//Search function goes into the histogram and counts the number of peaks
-	double nfound = s->Search(hMinv_elpos, 1, "nobackground", 0.9);
+	double nfound = s->Search(hMinv_elpos, 1, "nobackground", 0.999);
 	//printf("Found %d candidate peaks\n", nfound);
 
 	//The Search function saves the (x,y) co-ords of the peaks, this finds these values and prints it to the screen
@@ -200,7 +229,22 @@ hMinv_elpos->Draw("") ;
 		float yp = hMinv_elpos->GetBinContent(bin);
 		cout << "X Position: " <<  xp << "  Y Position: " << yp << endl;
 	}
+/*
+#include <TArrow.h>
+TArrow arrow(xp + 200,yp,xp + 20,yp,0.02,"----|>");
+arrow->SetLineWidth(2);
+arrow->SetLineColor(kBlack);
+arrow->DrawClone();
+*/
 
+/*
+#include <TLatex.h>
+TLatex text(xp + 210, yp - 200, "#scale[0.8]{#color[2]{#%f}}",xp);
+text->SetLineColor(kRed);
+text->DrawClone();
+*/
+
+}
 
 TCanvas *check_theta = new TCanvas("check_theta","check_theta",100,100, 400, 550) ;
 check_theta->Divide(2, 3) ;
@@ -215,6 +259,13 @@ check_theta->cd(4) ;
 hEnergy_Theta_elpos_proton_thetaCut->Draw("colz") ;
 check_theta->cd(5) ;
 hEnergy_Theta_nocut_proton->Draw("colz") ;
+
+
+TCanvas *red = new TCanvas("red","red",100,100,400,350);
+red->Divide(1,1);
+
+red->cd (1);
+hEnergy_Theta_elpos->Draw("colz");
 
 TCanvas *check = new TCanvas("check","check",100,100, 400, 350) ;
 check->Divide(2, 2) ;
