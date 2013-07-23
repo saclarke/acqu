@@ -109,30 +109,30 @@ Misc: AngleLimits 15.0 15.0 10.0
 #
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #Display DeltaE-E banana plots
-#Display: 2D E 400 0 400  0 DeltaE 100 0 6  0
-#Display: 2D E 400 0 400  1 DeltaE 100 0 6  1
-#Display: 2D E 400 0 400  2 DeltaE 100 0 6  2
-#Display: 2D E 400 0 400  3 DeltaE 100 0 6  3
-#Display: 2D E 400 0 400  4 DeltaE 100 0 6  4
-#Display: 2D E 400 0 400  5 DeltaE 100 0 6  5
-#Display: 2D E 400 0 400  6 DeltaE 100 0 6  6
-#Display: 2D E 400 0 400  7 DeltaE 100 0 6  7
-#Display: 2D E 400 0 400  8 DeltaE 100 0 6  8
-#Display: 2D E 400 0 400  9 DeltaE 100 0 6  9
-#Display: 2D E 400 0 400 10 DeltaE 100 0 6 10
-#Display: 2D E 400 0 400 11 DeltaE 100 0 6 11
-#Display: 2D E 400 0 400 12 DeltaE 100 0 6 12
-#Display: 2D E 400 0 400 13 DeltaE 100 0 6 13
-#Display: 2D E 400 0 400 14 DeltaE 100 0 6 14
-#Display: 2D E 400 0 400 15 DeltaE 100 0 6 15
-#Display: 2D E 400 0 400 16 DeltaE 100 0 6 16
-#Display: 2D E 400 0 400 17 DeltaE 100 0 6 17
-#Display: 2D E 400 0 400 18 DeltaE 100 0 6 18
-#Display: 2D E 400 0 400 19 DeltaE 100 0 6 19
-#Display: 2D E 400 0 400 20 DeltaE 100 0 6 20
-#Display: 2D E 400 0 400 21 DeltaE 100 0 6 21
-#Display: 2D E 400 0 400 22 DeltaE 100 0 6 22
-#Display: 2D E 400 0 400 23 DeltaE 100 0 6 23
+Display: 2D E 400 0 400  0 DeltaE 100 0 6  0
+Display: 2D E 400 0 400  1 DeltaE 100 0 6  1
+Display: 2D E 400 0 400  2 DeltaE 100 0 6  2
+Display: 2D E 400 0 400  3 DeltaE 100 0 6  3
+Display: 2D E 400 0 400  4 DeltaE 100 0 6  4
+Display: 2D E 400 0 400  5 DeltaE 100 0 6  5
+Display: 2D E 400 0 400  6 DeltaE 100 0 6  6
+Display: 2D E 400 0 400  7 DeltaE 100 0 6  7
+Display: 2D E 400 0 400  8 DeltaE 100 0 6  8
+Display: 2D E 400 0 400  9 DeltaE 100 0 6  9
+Display: 2D E 400 0 400 10 DeltaE 100 0 6 10
+Display: 2D E 400 0 400 11 DeltaE 100 0 6 11
+Display: 2D E 400 0 400 12 DeltaE 100 0 6 12
+Display: 2D E 400 0 400 13 DeltaE 100 0 6 13
+Display: 2D E 400 0 400 14 DeltaE 100 0 6 14
+Display: 2D E 400 0 400 15 DeltaE 100 0 6 15
+Display: 2D E 400 0 400 16 DeltaE 100 0 6 16
+Display: 2D E 400 0 400 17 DeltaE 100 0 6 17
+Display: 2D E 400 0 400 18 DeltaE 100 0 6 18
+Display: 2D E 400 0 400 19 DeltaE 100 0 6 19
+Display: 2D E 400 0 400 20 DeltaE 100 0 6 20
+Display: 2D E 400 0 400 21 DeltaE 100 0 6 21
+Display: 2D E 400 0 400 22 DeltaE 100 0 6 22
+Display: 2D E 400 0 400 23 DeltaE 100 0 6 23
 #
 #Display: 2D EOR 400 0 400 -1 DeltaEOR 100 0 10 -1
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -140,5 +140,6 @@ Misc: AngleLimits 15.0 15.0 10.0
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #Display phi correlation between PID and NaI for charged particles
 Display: 1D DeltaPhi 360 -180 180
+Display: 1D NCharged 10 0 10
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #

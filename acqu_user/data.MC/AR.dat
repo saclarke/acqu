@@ -1,6 +1,5 @@
 #------------------------------------------------------------------------------
 #                 Configuration file for MC data processing
-#             (AcquRoot 4v4 user package demonstration analysis)
 #------------------------------------------------------------------------------
 #
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -45,11 +44,15 @@ Branch:   emwpc         1024
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #ROOT file(s) (GEANT4 output) to be analysed. Add more lines for more files
 #
-TreeFile: simfiles/compton/LH2_10cm/compton_p_250_out.root
+#TreeFile:  simfiles/compton/LH2_10cm/compton_p_200_out.root
+#TreeFile: simfiles/pi0/LH2_10cm/pi0_p_250_out.root
+TreeFile: simfiles/dilepton_200_300_MeV.root
+#
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #Directory to save any created ROOT files (include final '/')
-Directory:  $acqu/
+Directory:  output/
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -66,4 +69,3 @@ Analysis:      TA2UserAnalysis
 #Configuration file for selected analysis class
 AnalysisSetup: AR-Analysis.dat
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-#

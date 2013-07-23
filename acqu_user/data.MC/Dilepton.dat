@@ -13,7 +13,7 @@
 ##-----------------------------------------------------------------------
 Foam-Model:	Dgp
 ##		#events/run	Random seed	#runs
-Number-Throws:	10000		888888		1
+Number-Throws:	10000   	888888		1
 ##
 ## Baryon resonances
 ##		Name	PDG code
@@ -27,7 +27,7 @@ Resonance:	P33	2214
 Beam: 	22		0.0 0.0 -500.
 
 #P-Distr: Beam T-Dist 1/x+0.02*(TMath::BreitWigner(x,0.9,0.01))  0.899 0.901 1000
- P-Distr: Beam T-Dist	x	                                 0.20   0.3 200
+ P-Distr: Beam T-Dist	x	                                 0.249 0.251 1000
 #P-Distr: Beam T-Dist	1/x	                                 0.125 0.135 200
 # P-Distr: Beam T-Dist	1/x	                                 0.105 0.115 200
    
